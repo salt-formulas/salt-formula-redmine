@@ -29,72 +29,26 @@ Redmine is open source and released under the terms of the GNU General Public Li
 * service versions: 2.3
 * operating systems: Ubuntu 12.04
 ***
-#### Plugins 
-
-* [CRM](http://www.redminecrm.com/projects/crm/pages/1)
-* [Theme-changer](http://www.redmine.org/issues/4602)
-* [Wiki-template](http://www.redmine.org/plugins/gsc_templates)
-* [Wiki-extensions](http://www.r-labs.org/projects/r-labs/wiki/Wiki_Extensions_en)
-
-##### Working
-
-* [Redmine-Monitoring-Controlling](http://alexmonteiro.github.io/Redmine-Monitoring-Controlling) - without translate !TODO
-
-***
-#### Themes
-
-* [Coffee](http://redminecrm.com/pages/coffee-theme)
-* [Highrise](http://redminecrm.com/pages/highrise-theme)
 
 ### Basic pillar
 
     redmine:
-      enabled: true
-      version: '2.3'
-      apps:
-      - name: majklk
-        database:
-          engine: postgresql
-          host: 127.0.0.1
-          name: db_name
-          password: pass
-          user: user_name
-        mail:
-          host: host-mail
-          password: pass
-          user: email
-          domain: domain
-
-### Sample pillar with plugins and themes with mssql server conection
-
-    redmine:
-      enabled: true
-      version: '2.3'
-      apps:
-      - name: majklk
-        database:
-          engine: sqlserver
-          dataserver: data_server `nullable`
-          host: 127.0.0.1
-          name: db_name
-          password: pass
-          user: user_name
-        mail:
-          host: host-mail
-          password: pass
-          user: email
-          domain: domain
-        plugins:
-        - name: crm
-        - name: wiki_extensions
-        - name: `monitoring_controlling`
-        - name: theme_changer
-        - name: wiki_template
-        themes:
-        - name: coffee
-        - name: highrise
-
-`be sure with apostrophes`
+      server:
+        enabled: true
+        version: '2.3'
+        apps:
+        - name: majklk
+          database:
+            engine: postgresql
+            host: 127.0.0.1
+            name: db_name
+            password: pass
+            user: user_name
+          mail:
+            host: host-mail
+            password: pass
+            user: email
+            domain: domain
 
 ### Read more
 

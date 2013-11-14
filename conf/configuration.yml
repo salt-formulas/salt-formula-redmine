@@ -1,4 +1,4 @@
-{%- for app in pillar.redmine.apps %}
+{%- for app in pillar.redmine.server.apps %}
 {%- if app_name == app.name %}
 
 # Redmine configuration file

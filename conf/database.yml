@@ -2,7 +2,7 @@
 # with MySQL and ruby1.9, replace the adapter name with `mysql2`.
 # Examples for PostgreSQL and SQLite3 can be found at the end.
 
-{%- for app in pillar.redmine.apps %}
+{%- for app in pillar.redmine.server.apps %}
 {%- if app_name == app.name %}
 production:
   adapter: {{ app.database.engine }}
@@ -14,6 +14,7 @@ production:
   username: {{ app.database.user }}
   password: "{{ app.database.password }}"
   encoding: utf8
+{%- if app.database.enviroment is defined and app.database.enviroment == "test" %}
 test:
   adapter: {{ app.database.engine }}
   {%- if app.database.dataserver is defined %}
@@ -24,6 +25,7 @@ test:
   username: {{ app.database.user }}
   password: "{{ app.database.password }}"
   encoding: utf8
+{%- elif app.database.enviroment is defined and app.database.enviroment == "development" %}
 development:
   adapter: {{ app.database.engine }}
   {%- if app.database.dataserver is defined %}
@@ -34,7 +36,7 @@ development:
   username: {{ app.database.user }}
   password: "{{ app.database.password }}"
   encoding: utf8
-
+{%- endif %}
 #development:
 #  adapter: mysql
 #  database: redmine_development
